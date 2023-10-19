@@ -1,0 +1,36 @@
+// this is a shortcut to center any block element
+@mixin center-auto{
+    margin: {
+        left: auto;
+        right: auto;
+    };
+}
+// div{
+//     @include center-auto;
+// }
+
+// this is a simple way to define a box
+// the : will set the height equal to width if no second parameter is inputed
+@mixin box($width, $height:$width){
+    width: $width;
+    height: $height;
+}
+// div{
+//     @include box(200px);
+// }
+// div{
+//     @include box(200px, 100px);
+// }
+
+@mixin cover-background($imag){
+    background-size: cover;
+    background-position: center;
+    background-image: url($imag);
+}
+
+@mixin flexboxCenter($direction){
+    display: $flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}

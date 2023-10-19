@@ -1,0 +1,104 @@
+<!-- <%- include ('../partials/messages') %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <link rel="stylesheet" href="./public/styles/css/main.css"> -->
+    <!-- <title>9 Hole</title>
+</head>
+
+<body>
+    <%- include ('../partials/messages') %> -->
+        <!-- holds the login section -->
+        <!-- <section class="loginSection"> -->
+            <!-- login title -->
+            <!-- <h1 class="loginTitle">Login</h1>
+
+            <form action="/users/login" method="POST" class="loginBlock"> -->
+                <!-- holds the email and password section -->
+                <!-- <article class="loginInfo">
+                    <div> -->
+                        <!-- <label for="email">Email</label> -->
+                        <!-- <input type="email" name="email" id="email">
+                    </div>
+                    <div> -->
+                        <!-- <label for="password">Password</label> -->
+                        <!-- <input type="password" name="password" id="password">
+                    </div>
+                </article> -->
+
+                <!-- button to sign in -->
+                <!-- <button type="submit">Log in</button>
+            </form>
+        </section>
+
+        <section class="cardHolder"> -->
+            <!-- Left set of cards -->
+            <!-- <div class="cardSets">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png"> -->
+            <!-- </div> -->
+            <!-- Right set of cards -->
+            <!-- <div class="cardSets">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png">
+            </div>
+        </section>
+
+</body>
+
+</html> -->
+
+<%- include ('../partials/messages') %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles/css/main.css">
+    <title>9 Hole</title>
+</head>
+
+<body class="loginBody">
+    <!-- holds the login section -->
+    <main class="loginSection">
+        <!-- login title -->
+        <h1 class="loginTitle">9 Hole</h1>
+
+        <form action="/users/login" method="POST" class="loginBlock">
+            <!-- holds the email and password section -->
+            <article class="loginInfo">
+                <div>
+                    <!-- <label for="email">Email</label> -->
+                    <input type="email" name="email" id="email" placeholder="Email">
+                </div>
+                <div>
+                    <!-- <label for="password">Password</label> -->
+                    <input type="password" name="password" id="password" placeholder="Password">
+                </div>
+            </article>
+
+            <!-- button to sign in -->
+            <button type="submit" onclick="getEmail()" id="submitButton">Log in</button>
+        </form>
+
+    </main>
+    <script src="../public/js/login.js"></script>
+</body>
+
+</html>

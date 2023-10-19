@@ -1,0 +1,51 @@
+.body{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgb(0, 0, 1, 0.5), rgba(0, 0, 1, 0.5)), url('../../images/loginBG.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 100;
+    margin: 0;
+    padding: 0;
+
+    // section to hold the content
+    .welcomeSection{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 50%;
+
+        // edits the title
+        .welcomeTitle{
+            font-size: 5rem;
+            text-align: center;
+            margin: 20px;
+            color: white;
+            transform: translate(0px, -20vh);
+            animation: titleDrop 1s 0.5s none;
+            animation-fill-mode: forwards;
+        }
+
+        // edits the button container
+        .welcomeInfo{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            width: 50%;
+
+            // edits the buttons
+            button{
+                font-size: 3.5rem;
+                padding: .5rem;
+                border-radius: 1rem;
+
+                // styles the text in the button
+                a{
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+        }
+    }   
+}

@@ -1,0 +1,32 @@
+// fucntions that do things we need:
+@function half($number){
+    @return $number/2;
+}
+// example:
+// .example{
+//     width:$element-width;;
+//     height:half($elementWidth);
+// }
+
+@function neg($number){
+    @return 0-$number;
+}
+// example:
+// .example{
+//     top:neg($element-width);
+// }
+
+@function halfNeg($number){
+    @return neg(half($number));
+}
+// example:
+// .example{
+//     position: absolute;
+//     width: $element-width;
+//     left: 50%;
+//     transform: translateX(halfNeg($element-width));
+// }
+
+@function col($col){
+    @return $col;
+}

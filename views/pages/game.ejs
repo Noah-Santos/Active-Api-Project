@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles/css/main.css">
+    <title>9 Hole Game</title>
+</head>
+
+<body id="gameBody">
+    <!-- adds the section for the winner text -->
+    <section class="winnerText">
+        <h1 id="winner"></h1>
+    </section>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="burger" id="burger">
+        <path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+            d="M3 6h18M3 12h18M3 18h18" />
+    </svg>
+    <!-- adds nav to be opened when page opens -->
+    <nav class="nav" id="nav">
+        <div class="navContent">
+            <!-- close button -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" class="x" id="close">
+                <path fill="white"
+                    d="M2.22 2.22a.749.749 0 0 1 1.06 0L6 4.939L8.72 2.22a.749.749 0 1 1 1.06 1.06L7.061 6L9.78 8.72a.749.749 0 1 1-1.06 1.06L6 7.061L3.28 9.78a.749.749 0 1 1-1.06-1.06L4.939 6L2.22 3.28a.749.749 0 0 1 0-1.06Z" />
+            </svg>
+            <!-- navigation links -->
+            <!-- <div class="containerLink">
+                <a href="index.html" class="navLink w-auto">Login</a>
+            </div> -->
+            <div class="containerLink">
+                <a href="/users/dashboard" class="navLink w-auto">Dashboard</a>
+            </div>
+            <div class="containerLink">
+                <a href="/users/logout" class="navLink w-auto">Logout</a>
+            </div>
+            <div class="containerLink">
+                <button class="navLink" onclick="restart()">Restart</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- the draw card -->
+    <img src="" id="pickedCard">
+
+    <main class="board" id="boards">
+        <!-- Player 1 -->
+        <section class="playerBoard">
+            <div class="row">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card1.1">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card1.2">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card1.3">
+            </div>
+            <div class="row">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card1.4">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card1.5">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card1.6">
+            </div>
+            <div class="row">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card1.7">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card1.8">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card1.9">
+            </div>
+        </section>
+
+        <!-- Center card -->
+        <section class="centerCard">
+            <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card" id="deck">
+            <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card" id="discardPile">
+            <!-- <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card"> -->
+        </section>
+
+        <!-- Player 2 -->
+        <section class="playerBoard">
+            <div class="row">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card2.1">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card2.2">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card2.3">
+            </div>
+            <div class="row">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card2.4">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card2.5">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card2.6">
+            </div>
+            <div class="row">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card2.7">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card2.8">
+                <img src="https://www.deckofcardsapi.com/static/img/back.png" class="card playArea" id="card2.9">
+            </div>
+        </section>
+    </main>
+
+    <section id="btnDiv">
+        <button class="mainBTN" onclick="btnChange(), newGame(), getDeck()"><strong>Start Game</strong></button>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!-- <script src="./taskFile.js"></script> -->
+    <script src="../public/js/turns.js"></script>
+</body>
+
+</html>
