@@ -152,6 +152,7 @@ body nav .navContent .x {
   display: none;
 }
 body nav .navContent .containerLink {
+  width: -moz-fit-content;
   width: fit-content;
 }
 body nav .navContent .containerLink .navLink {
@@ -223,6 +224,9 @@ body nav .navContent .containerLink .navLink {
   outline: 0;
   border: 0;
   border-bottom: 2px solid rgb(255, 255, 255);
+}
+.loginBody .loginSection .loginBlock .loginInfo input::-moz-placeholder {
+  color: rgb(255, 255, 255);
 }
 .loginBody .loginSection .loginBlock .loginInfo input::placeholder {
   color: rgb(255, 255, 255);
@@ -318,6 +322,9 @@ body nav .navContent .containerLink .navLink {
   outline: 0;
   border: 0;
   border-bottom: 2px solid rgb(255, 255, 255);
+}
+.registerBody .registerSection .registerBlock .registerInfo input::-moz-placeholder {
+  color: rgb(255, 255, 255);
 }
 .registerBody .registerSection .registerBlock .registerInfo input::placeholder {
   color: rgb(255, 255, 255);
@@ -435,7 +442,7 @@ body .dashboardTitle {
 .body {
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(rgba(0, 0, 1, 0.5), rgba(0, 0, 1, 0.5)), url("../../images/loginBG.png");
+  background-image: linear-gradient(rgba(0, 0, 1, 0.5), rgba(0, 0, 1, 0.5)), url("../../images/shoppingBG.avif");
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 100;
@@ -460,9 +467,10 @@ body .dashboardTitle {
 }
 .body .welcomeSection .welcomeInfo {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
   width: 50%;
+  height: auto;
 }
 .body .welcomeSection .welcomeInfo button {
   font-size: 3.5rem;

@@ -37,7 +37,7 @@ app.use(session({
     // session sectret is hashed on serialize
     secret: process.env.SESSION_SECRET,
     resave: true,
-    saveUnitialized: true
+    saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
