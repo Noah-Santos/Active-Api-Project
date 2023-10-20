@@ -17,12 +17,13 @@ async function getFood(){
         const response = await axios.request(options);
         values = response.data.map(item=>{
             let temp = [];
+            item.price.value = Number(item.price.value) * 1.22
             // gets the images and assigns them to a temporary variable
             for(let i = 0; i < item.images.length; i++){
                 temp.push(item.images[i].url);
             }
             // returns an array of useful information from the grocery item
-            return [`${item.name}`,`${item.description}`,`${item.manufacturer}`,`${item.price.value}`,temp]
+            return [`Name: ${item.name}`,`Description: ${item.description}`,`Manufacturer: ${item.manufacturer}`,`Price: $${item.price.value}`,temp]
         });
         console.log(values);
         // console.log(response.data);
