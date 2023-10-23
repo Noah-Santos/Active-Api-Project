@@ -20,25 +20,13 @@ const UserSchema  = new mongoose.Schema({
         type: Date,
         default : Date.now
     },
-    games :{
+    cart :{
+        type : Array,
+        default : []
+    },
+    balance :{
         type : Number,
         default : 0
-    },
-    wins :{
-        type : Number,
-        default : 0
-    },
-    loses :{
-        type : Number,
-        default : 0
-    },
-    ties :{
-        type : Number,
-        default : 0
-    },
-    status:{
-        type : String,
-        default : 'none'
     }
 },{collection : 'Users'});
 const User= mongoose.model('User',UserSchema);

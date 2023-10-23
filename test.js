@@ -23,7 +23,7 @@ async function getFood(){
                 temp.push(item.images[i].url);
             }
             // returns an array of useful information from the grocery item
-            return [`Name: ${item.name}`,`Description: ${item.description}`,`Manufacturer: ${item.manufacturer}`,`Price: $${item.price.value}`,temp]
+            return {name: `${item.name}`, description: `${item.description}`, manufacturer: `${item.manufacturer}`, price: `$${item.price.value}`, images: `${temp}`};
         });
         console.log(values);
         // console.log(response.data);

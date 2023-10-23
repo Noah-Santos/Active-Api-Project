@@ -12,13 +12,17 @@ router.get('/login', (req, res)=>{
 router.get('/register', (req, res)=>{
     res.render('pages/register')
 })
-// sends user to game
-router.get('/game', (req,res)=>{
-    res.render('pages/game')
-})
 // sends person to dashboard
 router.get('/dashboard', (req,res)=>{
     res.render('pages/dashboard');
+})
+// send user to shopping
+router.get('/shopping', (req,res)=>{
+    res.render('pages/shopping');
+})
+// send user to cart
+router.get('/cart', (req,res)=>{
+    res.render('pages/cart');
 })
 
 // function to get users
@@ -31,30 +35,20 @@ router.get('/getUser', async(req,res)=>{
     }
 });
 
-// updates person score
+// updates person
 // put request
 router.put('/:email', async(req,res)=>{
     try {
         let {email} = req.params;
-        let {status} = req.body;
-        let changePlayer = await User.findOne({email:email});
-        let players;
+        let {cart,balance} = req.body;
+        let changeUser = await User.findOne({email:email});
 
-        let gameUpdt  = changePlayer.games;
-        let winUpdt = changePlayer.wins;
-        let losesUpdt = changePlayer.loses;
-        let tiesUpdt = changePlayer.ties;
-        console.log(status)
+        cart = changeUser.cart.push(cart);
+        let newBalance = changeUser.balance;
 
-        if(status == 'won'){
-            players = await User.findOneAndUpdate({email:email}, {games: gameUpdt+1, wins: winUpdt+1, won:false, status:"none"});
-        }else if(status == 'ties'){
-            players = await User.findOneAndUpdate({email:email}, {games: gameUpdt+1, ties: tiesUpdt+1, status:"none"});
-        }else{
-            players = await User.findOneAndUpdate({email:email}, {games: gameUpdt+1, loses: losesUpdt+1, status:"none"});
-        }
-        console.log(players);
-        res.json(players);
+        let user = await User.findOneAndUpdate({email:email}, {cart:cart, balance:newBalance+balance});
+        console.log(user);
+        res.json(user);
     } catch (error) {
         console.log(error);
     }
