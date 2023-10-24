@@ -53,7 +53,7 @@ body nav .navLinks {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 35%;
+  width: 45%;
 }
 body nav .navLinks a {
   text-decoration: none;
@@ -489,7 +489,7 @@ body .cartSection .cartSection .cartItems .cartItem .productInfoCont .productInf
   text-align: center;
 }
 body .cartSection .cartSection .cartItems .cartItem .productInfoCont .productInfo #quantity {
-  width: 60%;
+  width: 65%;
   border: none;
   background-color: #7F7F7F;
   color: white;
