@@ -24,6 +24,10 @@ router.get('/shopping', (req,res)=>{
 router.get('/cart', (req,res)=>{
     res.render('pages/cart');
 })
+// send user to account
+router.get('/account', (req,res)=>{
+    res.render('pages/account');
+})
 
 // function to get users
 router.get('/getUser', async(req,res)=>{

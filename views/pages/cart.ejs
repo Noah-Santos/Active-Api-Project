@@ -18,22 +18,66 @@
 
         <!-- links -->
         <section class="navLinks">
-            <a href="/users/dashboard">Dashboard</a>
+            <a href="/users/account">Account</a>
             <a href="/users/shopping">Shopping</a>
             <a href="/users/cart">Cart</a>
         </section>
     </nav>
 
     <!-- content section -->
-    <main>
+    <main class="cartSection">
+        <!-- cart side -->
+        <section class="cartSection">
+            <h2 class="cartTitle">Shopping Cart</h2>
+            <!-- horizontal line -->
+            <div class="line"></div>
 
+            <!-- descriptors at the top -->
+            <div class="categoriesSection">
+                <div class="categories">
+                    <p class="descriptors">Image</p>
+                    <p class="descriptors">Name</p>
+                    <p class="descriptors">Price</p>
+                    <p class="descriptors">Quantity</p>
+                </div>
+            </div>
+            <!-- horizontal line -->
+            <div class="line"></div>
+
+            <!-- cart items -->
+            <div class="cartItems">
+                <div class="cartItem">
+                    
+                    <div class="productInfoCont">
+                        <p class="productInfo">
+                            <img src="../public/images/cart.png" alt="" class="productImage">
+                        </p>
+                        <p class="productInfo">cereal</p>
+                        <p class="productInfo">$14.14</p>
+                        <p class="productInfo">
+                            <select name="quantity" id="quantity">
+                                <option value="1">1</option>
+                                <option value="2">2</option>    
+                                <option value="3">4</option>
+                                <option value="4">3</option>
+                                <option value="5">5</option>
+                            </select>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- payment side -->
+        <section class="paymentSection">
+
+        </section>
     </main>
 
 
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="../public/js/shopping.js"></script>
 </body>
 
 </html>
