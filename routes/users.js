@@ -3,6 +3,24 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const User = require('../models/user');
+const axios = require('axios');
+
+const options = {
+  method: 'GET',
+  url: 'https://dawn2k-random-german-profiles-and-names-generator-v1.p.rapidapi.com/',
+  params: {
+    format: 'json',
+    cc: 'all',
+    ip: 'a',
+    phone: 'l,t,o',
+    count: '1',
+    images: '1'
+  },
+  headers: {
+    'X-RapidAPI-Key': '380492f9b7msh20d59cdef807ed1p1e8de2jsn02e4e09b5a66',
+    'X-RapidAPI-Host': 'dawn2k-random-german-profiles-and-names-generator-v1.p.rapidapi.com'
+  }
+};
 
 // sends user to login
 router.get('/login', (req, res)=>{
@@ -60,12 +78,15 @@ router.put('/:email', async(req,res)=>{
 
 router.post('/register', async(req, res)=>{
     // gets the information from the page
-    const {first_name, last_name, email, password, password2} = req.body;
+    const {name, email, password, password2} = req.body;
     let errors = [];
-    console.log(first_name, last_name, email, password, password2)
+
+    const response = await axios.request(options);
+
+    console.log(name, email, password, password2)
 
     // if all fields are not filled out, then create an error
-    if(!first_name || !last_name || !email || !password || !password2){
+    if(!name || !email || !password || !password2){
         errors.push({msg: "Please fill in all fields"})
     }
 
@@ -84,8 +105,7 @@ router.post('/register', async(req, res)=>{
     if(errors.length > 0){
         res.render('pages/register', {
             errors: errors,
-            first_name: first_name,
-            last_name: last_name,
+            name: name,
             email: email,
             password: password
         })
@@ -97,16 +117,14 @@ router.post('/register', async(req, res)=>{
             errors.push({msg: "This email has aleady been registered"})
             res.render('pages/register', {
                 errors: errors,
-                first_name: first_name,
-                last_name: last_name,
+                name: name,
                 email: email,
                 password: password
             })
         } else {
             // if no errors, create the new user
             const newUser = new User({
-                first_name: first_name,
-                last_name: last_name,
+                name: name,
                 email: email,
                 password: password
             })

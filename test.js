@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const options = {
+const option = {
   method: 'GET',
   url: 'https://store-groceries.p.rapidapi.com/groceries/search/coffee',
   headers: {
@@ -11,10 +11,30 @@ const options = {
 
 let values;
 
+
+const options = {
+  method: 'GET',
+  url: 'https://dawn2k-random-german-profiles-and-names-generator-v1.p.rapidapi.com/',
+  params: {
+    format: 'json',
+    cc: 'all',
+    ip: 'a',
+    phone: 'l,t,o',
+    count: '1',
+    images: '1'
+  },
+  headers: {
+    'X-RapidAPI-Key': '380492f9b7msh20d59cdef807ed1p1e8de2jsn02e4e09b5a66',
+    'X-RapidAPI-Host': 'dawn2k-random-german-profiles-and-names-generator-v1.p.rapidapi.com'
+  }
+};
+
+
+
 async function getFood(){
     try {
         // gets all the data from the api
-        const response = await axios.request(options);
+        const response = await axios.request(option);
         values = response.data.map(item=>{
             let temp = [];
             item.price.value = Number(item.price.value) * 1.22
@@ -32,4 +52,16 @@ async function getFood(){
     }
 }
 
-getFood();
+// getFood();
+
+async function getStuff(){
+    try {
+        const response = await axios.request(options);
+        console.log(response.data);
+        let cards = [];
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+getStuff();
