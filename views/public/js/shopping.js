@@ -14,7 +14,7 @@ $(function(){
 
     let options = {
         method: 'GET',
-        url: 'https://store-groceries.p.rapidapi.com/groceries/search/cereal',
+        url: 'https://store-groceries.p.rapidapi.com/groceries/search/food',
         headers: {
             'X-RapidAPI-Key': '380492f9b7msh20d59cdef807ed1p1e8de2jsn02e4e09b5a66',
             'X-RapidAPI-Host': 'store-groceries.p.rapidapi.com'
