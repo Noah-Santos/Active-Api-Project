@@ -99,7 +99,7 @@ body nav .searchNav #search::placeholder {
   align-items: center;
   width: 30vw;
   height: 75vh;
-  background-color: #7F7F7F;
+  background-color: rgb(94, 224, 238);
 }
 .loginBody .loginSection h1 {
   font-size: 4.5rem;
@@ -121,67 +121,111 @@ body nav .searchNav #search::placeholder {
   color: rgb(255, 255, 255);
   outline: 0;
 }
-.loginBody .loginSection p input::-moz-placeholder {
-  color: white;
-}
-.loginBody .loginSection p input::placeholder {
-  color: white;
-}
 .loginBody .loginSection img {
-  padding: 10%;
+  z-index: 300;
 }
 
 .registerBody {
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(rgba(0, 0, 1, 0.5), rgba(0, 0, 1, 0.5)), url("../../images/shoppingBG.avif");
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 1, 0.5), rgba(0, 0, 1, 0.5)), url("../../images/loginBG.png");
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 100;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .registerBody .registerSection {
+  height: 75%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  width: 30vw;
-  height: 75vh;
-  background-color: #7F7F7F;
 }
-.registerBody .registerSection h1 {
-  font-size: 4.5rem;
-  color: rgb(255, 255, 255);
-  position: relative;
-  transform: translate(-50%, 0);
+.registerBody .registerSection .registerTitle {
+  font-size: 5rem;
+  text-align: center;
+  margin: 20px;
+  color: white;
+  transform: translate(0px, -20vh);
+  animation: titleDrop 1s 0.5s none;
+  animation-fill-mode: forwards;
 }
-.registerBody .registerSection p {
-  border-bottom: 2px solid rgb(255, 255, 255);
-  margin: 30px;
+.registerBody .registerSection .registerBlock {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.registerBody .registerSection .registerBlock .registerInfo {
+  animation: registerSlide 3s 0.5s none linear;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.registerBody .registerSection .registerBlock .registerInfo .infoParts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.registerBody .registerSection .registerBlock .registerInfo .infoParts div {
   text-align: center;
 }
-.registerBody .registerSection p input {
+.registerBody .registerSection .registerBlock .registerInfo input {
+  width: 70%;
+  height: auto;
+  font-size: 50px;
   background: none;
   border: none;
-  padding: 10px 5px 0 10px;
-  font-size: 30px;
-  width: 75%;
+  text-align: center;
+  border-bottom: 2px solid rgb(255, 255, 255);
   color: rgb(255, 255, 255);
+  transform: translate(0, 0);
+  opacity: 1;
+  margin: 1rem;
+}
+.registerBody .registerSection .registerBlock .registerInfo input:focus {
   outline: 0;
+  border: 0;
+  border-bottom: 2px solid rgb(255, 255, 255);
 }
-.registerBody .registerSection p input::-moz-placeholder {
-  color: white;
+.registerBody .registerSection .registerBlock .registerInfo input::-moz-placeholder {
+  color: rgb(255, 255, 255);
 }
-.registerBody .registerSection p input::placeholder {
-  color: white;
+.registerBody .registerSection .registerBlock .registerInfo input::placeholder {
+  color: rgb(255, 255, 255);
 }
-.registerBody .registerSection img {
-  padding: 10%;
+.registerBody .registerSection .registerBlock button {
+  color: black;
+  font-size: 2rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+.registerBody .registerSection .registerBlock .account {
+  font-size: 2rem;
 }
 
+@keyframes titleDrop {
+  from {
+    transform: translate(0px, -15vh);
+  }
+  to {
+    transform: translate(0px, 0vh);
+  }
+}
+@keyframes registerSlide {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 body .dashBoardSection {
   height: 90%;
   display: flex;

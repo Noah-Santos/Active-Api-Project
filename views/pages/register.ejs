@@ -9,53 +9,34 @@
 </head>
 
 <body class="registerBody">
-    <!-- holds the register section -->
-    <main class="registerSection">
-        <!-- register title -->
-        <h1 class="registerTitle">9 Hole</h1>
 
-        <form action="/users/register" method="POST" class="registerBlock">
-            <article class="registerInfo">
+    <section class="registerSection">
+        <h1>Sign In</h1>
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+            <input type="text" placeholder="Name">
+        </p>
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+            <input type="text" placeholder="Email">
+        </p>
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6 22q-.825 0-1.413-.588T4 20V10q0-.825.588-1.413T6 8h1V6q0-2.075 1.463-3.538T12 1q2.075 0 3.538 1.463T17 6v2h1q.825 0 1.413.588T20 10v10q0 .825-.588 1.413T18 22H6Zm6-5q.825 0 1.413-.588T14 15q0-.825-.588-1.413T12 13q-.825 0-1.413.588T10 15q0 .825.588 1.413T12 17ZM9 8h6V6q0-1.25-.875-2.125T12 3q-1.25 0-2.125.875T9 6v2Z"/></svg>
+            <input type="password" placeholder="Password">
+        </p>
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6 22q-.825 0-1.413-.588T4 20V10q0-.825.588-1.413T6 8h1V6q0-2.075 1.463-3.538T12 1q2.075 0 3.538 1.463T17 6v2h1q.825 0 1.413.588T20 10v10q0 .825-.588 1.413T18 22H6Zm6-5q.825 0 1.413-.588T14 15q0-.825-.588-1.413T12 13q-.825 0-1.413.588T10 15q0 .825.588 1.413T12 17ZM9 8h6V6q0-1.25-.875-2.125T12 3q-1.25 0-2.125.875T9 6v2Z"/></svg>
+            <input type="password" placeholder="Confirm Password">
+        </p>
+        <p>
+            <a href="/users/account">Log In</a>
+        </p>
+    </section>
 
-                <div class="infoParts">
-                    <div>
-                        <input type="name" name="first_name" id="first_name" placeholder="Enter First Name"
-                            value="<%= typeof first_name != 'undefined' ? first_name : '' %>">
-                    </div>
-                    <div>
-                    <input type="name" name="last_name" id="last_name" placeholder="Enter Last Name"
-                        value="<%= typeof last_name != 'undefined' ? last_name : '' %>">
-                    </div>
-                </div>
+    <section class="registerSection">
+        <img src="../public/images/shoppingRegister.png">
+    </section>
 
-
-
-                <div class="infoParts">
-                    <div>
-                        <input type="password" name="password" id="password" placeholder="Enter Password"
-                            value="<%= typeof password != 'undefined' ? password : '' %>">
-                    </div>
-                    <div>
-                        <input type="password" name="password2" id="password2" placeholder="Confirm Password"
-                            value="<%= typeof password2 != 'undefined' ? password2 : '' %>">
-                    </div>
-                </div>
-
-
-                <div class="infoParts">
-                    <div>
-                        <input type="email" name="email" id="email" placeholder="Enter Email"
-                            value="<%= typeof email != 'undefined' ? email : '' %>">
-                    </div>
-                </div>
-            </article>
-
-            <button type="submit">Create Account</button>
-            <br>
-            <p class="account">Have An Account? <a href="/users/login">Login</a></p>
-        </form>
-
-    </main>
     <!-- <script src="./taskFile.js"></script> -->
 </body>
 
