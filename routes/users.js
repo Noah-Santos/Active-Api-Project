@@ -50,22 +50,22 @@ router.get('/getUser', async(req,res)=>{
 
 // updates person
 // put request
-router.put('/:email', async(req,res)=>{
-    try {
-        let {email} = req.params;
-        let {cart,balance} = req.body;
-        let changeUser = await User.findOne({email:email});
+// router.put('/:email', async(req,res)=>{
+//     try {
+//         let {email} = req.params;
+//         let {cart,balance} = req.body;
+//         let changeUser = await User.findOne({email:email});
 
-        cart = changeUser.cart.push(cart);
-        let newBalance = changeUser.balance;
+//         cart = changeUser.cart.push(cart);
+//         let newBalance = changeUser.balance;
 
-        let user = await User.findOneAndUpdate({email:email}, {cart:cart, balance:newBalance+balance});
-        console.log(user);
-        res.json(user);
-    } catch (error) {
-        console.log(error);
-    }
-})
+//         let user = await User.findOneAndUpdate({email:email}, {cart:cart, balance:newBalance+balance});
+//         console.log(user);
+//         res.json(user);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// })
 
 router.post('/register', async(req, res)=>{
     // gets the information from the page
@@ -175,6 +175,29 @@ router.get('/logout', (req, res)=>{
     })
     // if no error, send them to the home page
     res.redirect('/')
+});
+
+// put request
+router.put('/updateCart/:email', async(req,res)=>{
+    try {
+        let {email} = req.params;
+        let {balance, cart} = req.body;
+        let changePerson = await User.findOne({email:email})
+
+        let bal = changePerson.balance;
+        // console.log(req.body)
+        console.log(bal)
+        console.log(balance)
+        bal = parseFloat(bal) + parseFloat(balance)
+        console.log(bal)
+        let car = changePerson.cart
+        car.push(cart);
+
+        let people = await User.findOneAndUpdate({email:email}, {balance: bal, cart:car});
+        res.json(people);
+    } catch (error) {
+        console.log(error);
+    }
 })
 
 module.exports = router;

@@ -32,6 +32,7 @@ app.use(expressEJSLayout);
 // body parser
 // determines the data format
 app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 // express session
 app.use(session({
     // session sectret is hashed on serialize

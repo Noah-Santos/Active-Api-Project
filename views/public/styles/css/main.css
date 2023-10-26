@@ -311,11 +311,11 @@ body nav .searchNav #search::placeholder {
   margin: 1rem;
 }
 .shoppingBody .shoppingItems .row .item .itemInformation .name {
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: black;
 }
 .shoppingBody .shoppingItems .row .item .itemInformation .price {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   color: black;
 }
 .shoppingBody .shoppingItems .row .item .itemInformation .description {

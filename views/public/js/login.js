@@ -1,3 +1,4 @@
 function getEmail(){
-    sessionStorage.setItem('currentUserEmail', document.querySelector('#email').value);
+    let email = document.querySelector('#email').value;
+    sessionStorage.setItem('currentUserEmail', email);
 }

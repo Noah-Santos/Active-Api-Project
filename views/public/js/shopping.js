@@ -1,3 +1,4 @@
+let values;
 $(function(){
     $('#search').on('keypress', function(e){
         console.log('key pressed')
@@ -8,9 +9,9 @@ $(function(){
     })
 
     // gets the email of current user
-    let email = sessionStorage.getItem('currentUserEmail');
+    // let email = sessionStorage.getItem('currentUserEmail');
 
-    let values;
+    // let values;
 
     let options = {
         method: 'GET',
@@ -51,7 +52,7 @@ $(function(){
                             <div class="itemInformation">
                                 <p><strong class="name">Name: ${values[i].name}</strong></p>
                                 <p class="price">Price: ${values[i].price}</ class="price"></p>
-                                <button class="addCart" id="b${i}">Add to Cart</button>
+                                <button class="addCart" id="b${i}" onclick="addToCart(${i})">Cart</button>
                             </div>
                         </div>
 
@@ -62,7 +63,7 @@ $(function(){
                             <div class="itemInformation">
                                 <p><strong class="name">Name: ${values[i+1].name}</strong></p>
                                 <p class="price">Price: ${values[i+1].price}</ class="price"></p>
-                                <button class="addCart" id="b${i+1}">Add to Cart</button>
+                                <button class="addCart" id="b${i+1}" onclick="addToCart(${i+1})">Cart</button>
                             </div>
                         </div>
 
@@ -73,7 +74,7 @@ $(function(){
                             <div class="itemInformation">
                                 <p><strong class="name">Name: ${values[i+2].name}</strong></p>
                                 <p class="price">Price: ${values[i+2].price}</ class="price"></p>
-                                <button class="addCart" id="b${i+2}">Add to Cart</button>
+                                <button class="addCart" id="b${i+2}" onclick="addToCart('${i+2}')">Cart</button>
                             </div>
                         </div>
                     </article>
@@ -82,6 +83,7 @@ $(function(){
 
             // adds items to the page
             document.querySelector('.shoppingItems').innerHTML = items.join('');
+            console.log(values)
         } catch (error) {
             console.error(error);
         }
@@ -89,16 +91,33 @@ $(function(){
     getFood();
 
     // if button is clicked, add it to cart
-    $('.addCart').on('click', async function(){
-        console.log('click')
-        let id = $(this).attr('id');
-        let temp = id.split('');
-        console.log(temp);
-        await fetch(`/users/${currentEmail}`, {
-            method: "PUT",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({cart:values[temp[1]],balance:values[temp[1]].price}),
-        })
-        console.log('added to cart');
-    })
+    // $('.addCart').on('click', async function(){
+    //     console.log('click')
+    //     let id = $(this).attr('id');
+    //     let temp = id.split('');
+    //     console.log(temp);
+    //     await fetch(`/users/${currentEmail}`, {
+    //         method: "PUT",
+    //         headers: {'Content-Type': 'application/json'},
+    //         body: JSON.stringify({cart:values[temp[1]],balance:values[temp[1]].price}),
+    //     })
+    //     console.log('added to cart');
+    // })
+
 })
+
+// adds item to cart
+async function addToCart(id){
+    let currentEmail = sessionStorage.getItem('currentUserEmail');
+    console.log(currentEmail);
+    let cart = values[id];
+    let balance = values[id].price;
+    balance = balance.split('$')
+    console.log(cart)
+    await fetch(`/users/updateCart/${currentEmail}`, {
+        method: "PUT",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({cart:cart, balance:balance[1], test:'test'}),
+    })
+    console.log('added to cart');
+}

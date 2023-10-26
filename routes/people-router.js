@@ -1,39 +1,39 @@
-// let {people} = require('../data');
-const People = require('../models/user');
+const express = require('express');
+const router = express.Router();
 
-// get function for all people
-const readPeople = async(req,res)=>{
-    // res.json({success:true, data:people});
+// Below here is to work with the router application
+
+let People = require('../models/person');
+
+router.get('/', async(req,res)=>{
     try {
         let people = await People.find({});
-        // console.log(answer);
         res.json(people);
     } catch (error) {
         console.log(error)
     }
-}
+});
 
-// post function for creating people
-const createPeople = async(req,res)=>{
+router.post('/', async(req,res)=>{
     try {
         let allPeople = await People.find({});
-        let {name, age, task} = req.body;
+        const {name, age, task} = req.body;
 
-        if(task == ''){
+        if(!task){
             task = 'none';
         }
 
-        let newPerson = await People.create({name:name, age:age, userID:allPeople.length+1, task:task});
+        let newPerson = await People.create({name:name, age:age, task:task, userID:allPeople.length+1});
         allPeople = await People.find({});
         res.json(allPeople);
 
     } catch (error) {
         console.log(error);
     }
-}
+});
 
-// put function for update people
-const updatePeople = async(req,res)=>{
+// put request
+router.put('/:email', async(req,res)=>{
     try {
         let {email} = req.params;
         let {balance, cart} = req.body;
@@ -49,10 +49,10 @@ const updatePeople = async(req,res)=>{
     } catch (error) {
         console.log(error);
     }
-}
+})
 
-// delete function for delete people
-const deletePeople = async(req,res)=>{
+// delete request
+router.delete('/:userID', async(req, res)=>{
     try {
         const {userID} = req.params;
         let person = await People.findOneAndDelete({userID:userID});
@@ -60,6 +60,7 @@ const deletePeople = async(req,res)=>{
     } catch (error) {
         console.log(error);
     }
-}
+});
 
-module.exports = {readPeople, createPeople, updatePeople, deletePeople};
+
+module.exports = router;
