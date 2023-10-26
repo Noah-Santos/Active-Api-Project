@@ -211,6 +211,10 @@ body nav .searchNav #search::placeholder {
   padding: 10%;
 }
 
+.regIMG {
+  width: 50%;
+}
+
 .body {
   width: 100%;
   height: 100%;

@@ -4,7 +4,7 @@ const {ensureAuthenticated} = require('../config/auth')
 
 // default startup page will be the welcome page
 router.get('/', function (req, res){
-    res.render('pages/welcome')
+    res.render('pages/login')
 })
 
 // router.get('/register', (req, res)=>{
