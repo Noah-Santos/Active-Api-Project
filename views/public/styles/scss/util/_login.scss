@@ -14,41 +14,62 @@
 
     .loginSection{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        width: 30vw;
+        width: 60vw;
         height: 75vh;
         background-color: #7F7F7F;
+        border-radius: 1rem;
 
-        h1{
-            font-size: 4.5rem;
-            color: rgb(255, 255, 255);
-            position: relative;
-            transform: translate(-50%,0);
-        }
+        .loginForm{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            padding: 1rem;
 
-        p{
-            border-bottom: 2px solid rgb(255, 255, 255);
-            margin: 30px;
-            text-align: center;
-            
-            input{
-                background: none;
-                border: none;
-                padding: 10px 5px 0 10px;
-                font-size: 30px;
-                width: 75%;
+            h1 {
+                font-size: 4.5rem;
                 color: rgb(255, 255, 255);
-                outline: 0;
+                position: relative;
+                // transform: translate(-50%, 0);
+            }
 
-                &::placeholder{
-                    color: white;
+            .underline {
+                border-bottom: 2px solid rgb(255, 255, 255);
+            }
+        
+            div {
+                margin: 30px;
+                text-align: center;
+        
+                input {
+                    background: none;
+                    border: none;
+                    padding: 10px 5px 0 10px;
+                    font-size: 30px;
+                    width: 75%;
+                    color: rgb(255, 255, 255);
+                    outline: 0;
+        
+                    &::placeholder {
+                        color: white;
+                    }
                 }
+
+                button{
+                    border: none;
+                    background: none;
+                    font-size: 2rem;
+                    text-decoration: underline;
+                }
+            }
+        
+            img {
+                padding: 10%;
             }
         }
 
-        img{
-            padding: 10%;
-        }
+        
     }
 }

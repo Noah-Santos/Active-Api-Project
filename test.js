@@ -58,7 +58,9 @@ async function getStuff(){
     try {
         const response = await axios.request(options);
         console.log(response.data);
-        let cards = [];
+        let {visa, mastercard} = response.data[0].cc;
+        console.log(visa)
+        console.log(mastercard)
     } catch (error) {
         console.error(error);
     }

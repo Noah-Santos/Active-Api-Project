@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 const User = require('../models/user');
 const axios = require('axios');
+const { ensureAuthenticated } = require('../config/auth');
 
 const options = {
   method: 'GET',
@@ -30,10 +31,6 @@ router.get('/login', (req, res)=>{
 router.get('/register', (req, res)=>{
     res.render('pages/register')
 })
-// sends person to dashboard
-router.get('/dashboard', (req,res)=>{
-    res.render('pages/dashboard');
-})
 // send user to shopping
 router.get('/shopping', (req,res)=>{
     res.render('pages/shopping');
@@ -43,8 +40,10 @@ router.get('/cart', (req,res)=>{
     res.render('pages/cart');
 })
 // send user to account
-router.get('/account', (req,res)=>{
-    res.render('pages/account');
+router.get('/account', ensureAuthenticated, (req,res)=>{
+    res.render('pages/account', {
+        user:req.user
+    });
 })
 
 // function to get users
@@ -78,15 +77,17 @@ router.put('/:email', async(req,res)=>{
 
 router.post('/register', async(req, res)=>{
     // gets the information from the page
-    const {name, email, password, password2} = req.body;
+    const {name, email, password, password2, creditCard} = req.body;
     let errors = [];
 
     const response = await axios.request(options);
+    let {image} = response.data[0];
 
     console.log(name, email, password, password2)
+    console.log(creditCard.length)
 
     // if all fields are not filled out, then create an error
-    if(!name || !email || !password || !password2){
+    if(!name || !email || !password || !password2 || !creditCard){
         errors.push({msg: "Please fill in all fields"})
     }
 
@@ -99,6 +100,11 @@ router.post('/register', async(req, res)=>{
     // this is where more specific requirements come from
     if(password.length < 6){
         errors.push({msg: "Password needs to be at least 6 characters"})
+    }
+
+    // credit card length has to be 16
+    if(creditCard.length != 16){
+        errors.push({msg: "Credit card needs to be 16 characters"})
     }
 
     // if there are errors, send them back to the register page
@@ -126,7 +132,9 @@ router.post('/register', async(req, res)=>{
             const newUser = new User({
                 name: name,
                 email: email,
-                password: password
+                password: password,
+                card: creditCard,
+                icon: image
             })
 
             // used to encrypt the password
@@ -159,8 +167,8 @@ router.post('/register', async(req, res)=>{
 router.post('/login', (req,res,next)=>{
     // passport checks if the user is still logged in
     passport.authenticate('local',{
-        // if they are success, send them to the dashboard
-        successRedirect: '/dashboard',
+        // if they are success, send them to the account page
+        successRedirect: '/users/account',
         // if unsuccessful, send them to the login page
         failureRedirect: '/users/login',
         failureFlash: true,

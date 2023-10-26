@@ -89,12 +89,12 @@ $(function(){
     getFood();
 
     // if button is clicked, add it to cart
-    $('.addCart').on('click', function(){
+    $('.addCart').on('click', async function(){
         console.log('click')
         let id = $(this).attr('id');
         let temp = id.split('');
         console.log(temp);
-        fetch(`/users/${currentEmail}`, {
+        await fetch(`/users/${currentEmail}`, {
             method: "PUT",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({cart:values[temp[1]],balance:values[temp[1]].price}),

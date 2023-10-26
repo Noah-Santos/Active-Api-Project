@@ -23,6 +23,12 @@ const UserSchema  = new mongoose.Schema({
     balance :{
         type : Number,
         default : 0
+    },
+    card :{
+        type : Number,
+    },
+    icon :{
+        type : String,
     }
 },{collection : 'Users'});
 const User= mongoose.model('User',UserSchema);

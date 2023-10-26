@@ -1,135 +1,5 @@
-// // edits section of the page
-// .registerBody {
-//     width: 100vw;
-//     height: 100vh;
-//     background-image: linear-gradient(rgb(0, 0, 1, 0.5), rgba(0, 0, 1, 0.5)), url('../../images/registerBG.png');
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     z-index: 100;
-//     margin: 0;
-//     padding: 0;
-
-//     // edits the section holding register stuff
-//     .registerSection {
-//         height: 75%;
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: space-between;
-//         align-items: center;
-
-//         // edits the title of the page
-//         .registerTitle {
-//             font-size: 5rem;
-//             text-align: center;
-//             margin: 20px;
-//             color: white;
-//             transform: translate(0px, -20vh);
-//             animation: titleDrop 1s 0.5s none;
-//             animation-fill-mode: forwards;
-//         }
-
-//         // section for the information
-//         .registerBlock {
-//             color: white;
-//             display: flex;
-//             flex-direction: column;
-//             justify-content: space-around;
-//             align-items: center;
-//             width: 100%;
-
-//             // edits the register info section
-//             .registerInfo {
-//                 animation: registerSlide 3s 0.5s none linear;
-//                 opacity: 0;
-//                 animation-fill-mode: forwards;
-//                 display: flex;
-//                 align-items: center;
-//                 justify-content: center;
-//                 flex-direction: column;
-
-//                 // Sections of info from the info block of the register page
-//                 .infoParts{
-//                     display: flex;
-//                     align-items: center;
-//                     justify-content: center;
-                    
-//                     div{
-//                         text-align: center;
-//                     }
-//                 }
-
-//                 // edits the individual input sections
-//                 input {
-//                     width: 70%;
-//                     height: auto;
-//                     font-size: 50px;
-//                     background: none;
-//                     border: none;
-//                     text-align: center;
-//                     border-bottom: 2px solid rgb(255, 255, 255);
-//                     color: rgb(255, 255, 255);
-//                     transform: translate(0, 0);
-//                     opacity: 1;
-//                     margin: 1rem;
-
-//                     &:focus {
-//                         outline: 0;
-//                         border: 0;
-//                         border-bottom: 2px solid rgb(255, 255, 255);
-//                     }
-
-//                     &::placeholder {
-//                         color: rgb(255, 255, 255);
-//                     }
-//                 }
-//             }
-
-//             button {
-//                 color: black;
-//                 font-size: 2rem;
-//                 padding: .5rem;
-//                 border-radius: 1rem;
-//             }
-
-//             // edits the account section at the bottom
-//             .account{
-//                 font-size: 2rem;
-//             }
-//         }
-//     }
-
-// }
-
-// // gets the title to slide downwards
-// @keyframes titleDrop {
-//     from {
-//         transform: translate(0px, -15vh);
-//     }
-
-//     to {
-//         transform: translate(0px, 0vh);
-//     }
-// }
-
-// // does the opacity of the information inputs
-// @keyframes registerSlide {
-//     from {
-//         opacity: 0;
-//     }
-
-//     to {
-//         opacity: 1;
-//     }
-// }
-
-// // // // does the sliding of the cards
-// // // @keyframes cards {
-// // //     from{transform: translate(0px, -300vh);}
-// // //     to{transform: translate(0px, -90vh)}
-// // // }
-
 // edits section of the page
-.registerBody{
+.registerBody {
     width: 100%;
     height: 100%;
     background-image: linear-gradient(rgb(0, 0, 1, 0.5), rgba(0, 0, 1, 0.5)), url('../../images/shoppingBG.avif');
@@ -142,43 +12,64 @@
     justify-content: center;
     align-items: center;
 
-    .registerSection{
+    .registerSection {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        width: 30vw;
-        height: 75vh;
+        width: 60vw;
+        height: 90%;
         background-color: #7F7F7F;
+        border-radius: 1rem;
 
-        h1{
-            font-size: 4.5rem;
-            color: rgb(255, 255, 255);
-            position: relative;
-            transform: translate(-50%,0);
-        }
+        .registerForm {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            // justify-content: space-evenly;
+            padding: 1rem;
 
-        p{
-            border-bottom: 2px solid rgb(255, 255, 255);
-            margin: 30px;
-            text-align: center;
-            
-            input{
-                background: none;
-                border: none;
-                padding: 10px 5px 0 10px;
-                font-size: 30px;
-                width: 75%;
+            h1 {
+                font-size: 4.5rem;
                 color: rgb(255, 255, 255);
-                outline: 0;
+                position: relative;
+                // transform: translate(-50%, 0);
+            }
 
-                &::placeholder{
-                    color: white;
+            .underline {
+                border-bottom: 2px solid rgb(255, 255, 255);
+            }
+
+            div {
+                margin: 30px;
+                text-align: center;
+
+                input {
+                    background: none;
+                    border: none;
+                    padding: 10px 5px 0 10px;
+                    font-size: 30px;
+                    width: 75%;
+                    color: rgb(255, 255, 255);
+                    outline: 0;
+
+                    &::placeholder {
+                        color: white;
+                    }
                 }
+
+                button {
+                    border: none;
+                    background: none;
+                    font-size: 2rem;
+                    text-decoration: underline;
+                }
+            }
+
+            img {
+                padding: 10%;
             }
         }
 
-        img{
-            padding: 10%;
-        }
+
     }
 }

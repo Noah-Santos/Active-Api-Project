@@ -73,9 +73,6 @@ body nav .searchNav #search {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
-body nav .searchNav #search::-moz-placeholder {
-  color: white;
-}
 body nav .searchNav #search::placeholder {
   color: white;
 }
@@ -95,24 +92,33 @@ body nav .searchNav #search::placeholder {
 }
 .loginBody .loginSection {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  width: 30vw;
+  width: 60vw;
   height: 75vh;
   background-color: #7F7F7F;
+  border-radius: 1rem;
 }
-.loginBody .loginSection h1 {
+.loginBody .loginSection .loginForm {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+.loginBody .loginSection .loginForm h1 {
   font-size: 4.5rem;
   color: rgb(255, 255, 255);
   position: relative;
-  transform: translate(-50%, 0);
 }
-.loginBody .loginSection p {
+.loginBody .loginSection .loginForm .underline {
   border-bottom: 2px solid rgb(255, 255, 255);
+}
+.loginBody .loginSection .loginForm div {
   margin: 30px;
   text-align: center;
 }
-.loginBody .loginSection p input {
+.loginBody .loginSection .loginForm div input {
   background: none;
   border: none;
   padding: 10px 5px 0 10px;
@@ -121,13 +127,16 @@ body nav .searchNav #search::placeholder {
   color: rgb(255, 255, 255);
   outline: 0;
 }
-.loginBody .loginSection p input::-moz-placeholder {
+.loginBody .loginSection .loginForm div input::placeholder {
   color: white;
 }
-.loginBody .loginSection p input::placeholder {
-  color: white;
+.loginBody .loginSection .loginForm div button {
+  border: none;
+  background: none;
+  font-size: 2rem;
+  text-decoration: underline;
 }
-.loginBody .loginSection img {
+.loginBody .loginSection .loginForm img {
   padding: 10%;
 }
 
@@ -146,24 +155,32 @@ body nav .searchNav #search::placeholder {
 }
 .registerBody .registerSection {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  width: 30vw;
-  height: 75vh;
+  width: 60vw;
+  height: 90%;
   background-color: #7F7F7F;
+  border-radius: 1rem;
 }
-.registerBody .registerSection h1 {
+.registerBody .registerSection .registerForm {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.registerBody .registerSection .registerForm h1 {
   font-size: 4.5rem;
   color: rgb(255, 255, 255);
   position: relative;
-  transform: translate(-50%, 0);
 }
-.registerBody .registerSection p {
+.registerBody .registerSection .registerForm .underline {
   border-bottom: 2px solid rgb(255, 255, 255);
+}
+.registerBody .registerSection .registerForm div {
   margin: 30px;
   text-align: center;
 }
-.registerBody .registerSection p input {
+.registerBody .registerSection .registerForm div input {
   background: none;
   border: none;
   padding: 10px 5px 0 10px;
@@ -172,90 +189,17 @@ body nav .searchNav #search::placeholder {
   color: rgb(255, 255, 255);
   outline: 0;
 }
-.registerBody .registerSection p input::-moz-placeholder {
+.registerBody .registerSection .registerForm div input::placeholder {
   color: white;
 }
-.registerBody .registerSection p input::placeholder {
-  color: white;
-}
-.registerBody .registerSection img {
-  padding: 10%;
-}
-
-body .dashBoardSection {
-  height: 90%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  justify-items: flex-start;
-}
-body .dashBoardSection #userInfo {
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  color: white;
-  width: 40%;
-  height: 75%;
-  padding: 1rem;
-}
-body .dashBoardSection #userInfo aside {
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #636363;
-  color: white;
-  width: 100%;
-  height: 70%;
-  padding: 1rem;
-}
-body .dashBoardSection #userInfo aside .userInfo {
-  font-size: 3rem;
-  padding: 1rem;
-}
-body .dashBoardSection #userInfo aside #username {
-  font-size: 4rem;
-  padding: 1rem;
-}
-body .dashBoardSection #userInfo button {
-  border-radius: 1rem;
-  background-color: white;
-}
-body .dashBoardSection #userInfo button a {
-  font-size: 3rem;
-  text-decoration: none;
-  padding: 1rem;
-  color: black;
-}
-body .dashBoardSection #leaderboard {
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  background-color: #636363;
-  color: white;
-  width: 40%;
-  height: 75%;
-}
-body .dashBoardSection #leaderboard #leaderboardTitle {
-  text-align: center;
-  font-size: 4rem;
-  padding: 1rem;
-}
-body .dashBoardSection #leaderboard .top {
-  padding-left: 3rem;
-  width: 50%;
-  display: block;
+.registerBody .registerSection .registerForm div button {
+  border: none;
+  background: none;
   font-size: 2rem;
+  text-decoration: underline;
 }
-body .dashBoardSection #leaderboard .top li {
-  display: list-item;
-  list-style-position: inside;
-}
-body .dashBoardSection #leaderboard .top ul {
-  margin-left: 1rem;
+.registerBody .registerSection .registerForm img {
+  padding: 10%;
 }
 
 .body {
@@ -372,6 +316,7 @@ body .dashBoardSection #leaderboard .top ul {
   width: 45%;
   font-size: 1.25rem;
   padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 body .cartSection {
@@ -455,9 +400,6 @@ body .cartSection .cartSection .cartItems .cartItem .productInfoCont .productInf
   font-size: 1.5rem;
   border-radius: 0.5rem;
 }
-body .cartSection .cartSection .cartItems .cartItem .productInfoCont .productInfo #quantity::-moz-placeholder {
-  color: rgb(255, 255, 255);
-}
 body .cartSection .cartSection .cartItems .cartItem .productInfoCont .productInfo #quantity::placeholder {
   color: rgb(255, 255, 255);
 }
@@ -468,11 +410,22 @@ body .cartSection .paymentSection {
   background-color: #7F7F7F;
 }
 
-.accountBody {
+body .accountCont {
   background-color: #7F7F7F;
-  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
 }
+body .accountCont .accountSection {
+  width: 70%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  background-color: #D9D9D9;
+}
+
 * {
   margin: 0;
   padding: 0;
