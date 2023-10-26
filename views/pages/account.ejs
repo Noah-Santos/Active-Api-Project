@@ -27,7 +27,11 @@
     <!-- content section -->
     <main class="accountCont">
         <section class="accountSection">
-            <img src="<%= user.icon %>" alt="">
+            <div class="imageContainer">
+                <img src="<%= user.icon %>" alt="user icon" class="userImage">
+            </div>
+            
+            <h1 class="userName"><%= user.name %></h1>
         </section>
     </main>
 

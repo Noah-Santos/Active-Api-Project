@@ -66,4 +66,26 @@ async function getStuff(){
     }
 }
 
-getStuff();
+// getStuff();
+
+const options2 = {
+  method: 'GET',
+  url: 'https://dummy-user1.p.rapidapi.com/users/1',
+  headers: {
+    'X-RapidAPI-Key': '380492f9b7msh20d59cdef807ed1p1e8de2jsn02e4e09b5a66',
+    'X-RapidAPI-Host': 'dummy-user1.p.rapidapi.com'
+  }
+};
+
+
+async function user(){
+  try {
+    const response = await axios.request(options2);
+    console.log(response.data);
+    console.log(response.data.avatar);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+user();

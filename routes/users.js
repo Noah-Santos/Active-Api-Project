@@ -8,18 +8,10 @@ const { ensureAuthenticated } = require('../config/auth');
 
 const options = {
   method: 'GET',
-  url: 'https://dawn2k-random-german-profiles-and-names-generator-v1.p.rapidapi.com/',
-  params: {
-    format: 'json',
-    cc: 'all',
-    ip: 'a',
-    phone: 'l,t,o',
-    count: '1',
-    images: '1'
-  },
+  url: 'https://dummy-user1.p.rapidapi.com/users/1',
   headers: {
     'X-RapidAPI-Key': '380492f9b7msh20d59cdef807ed1p1e8de2jsn02e4e09b5a66',
-    'X-RapidAPI-Host': 'dawn2k-random-german-profiles-and-names-generator-v1.p.rapidapi.com'
+    'X-RapidAPI-Host': 'dummy-user1.p.rapidapi.com'
   }
 };
 
@@ -81,7 +73,7 @@ router.post('/register', async(req, res)=>{
     let errors = [];
 
     const response = await axios.request(options);
-    let {image} = response.data[0];
+    let image = response.data.avatar;
 
     console.log(name, email, password, password2)
     console.log(creditCard.length)
