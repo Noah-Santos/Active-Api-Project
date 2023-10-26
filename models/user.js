@@ -21,8 +21,8 @@ const UserSchema  = new mongoose.Schema({
         default : []
     },
     balance :{
-        type : Number,
-        default : 0
+        type : String,
+        default : '0.00'
     },
     card :{
         type : Number,

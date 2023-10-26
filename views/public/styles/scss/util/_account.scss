@@ -1,43 +1,51 @@
 body{
+    height: 100%;
+
     // edits container for content
     .accountCont{
-        padding: {
-            top: 2rem;
-            bottom: 2rem;
-        };
         background-color: #7F7F7F;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-around;
         align-items: center;
         width: 100%;
+        height: 100%;
 
         // edits container for the account info
         .accountSection{
-            padding-top: 2rem;
-            width: 70%;
+            padding: {
+                top: 2rem;
+                left: 2rem;
+                right: 2rem;
+                bottom: 2rem;
+            };
+
+            width: 60%;
             height: 70%;
             display: flex;
             flex-direction: column;
             background-color: #D9D9D9;
             align-items: center;
+            border-radius: 1rem;
 
             // adds the darker background to the image
             .imageContainer{
-                width: 15vw;
-                height: 30vh;
+                width: 15rem;
+                height: 15rem;
                 background-color: #7F7F7F;
                 border-radius: 50%;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-around;
                 align-items: center;
+                margin-bottom: 1rem;
 
                 // edits image of the user
                 .userImage {
                     width: 90%;
                     height: 90%;
                     border-radius: 50%;
+                    border: 2px solid #D9D9D9;
                 }
             }
 
@@ -45,7 +53,35 @@ body{
             .userName{
                 color: black;
                 font-size: 5rem;
+                margin-bottom: 1rem;
             }
+
+            // edits email of user
+            .userEmail{
+                color: rgb(63, 63, 63);
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            // creates a horizontal line
+            .line{
+                width: 95%;
+                border-bottom: 2px solid #7F7F7F;
+                margin-bottom: 1rem;
+            }
+
+            // edits user information
+            .userInfo{
+                color: black;
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        // edits the users information
+        .information{
+            display: flex;
+            flex-direction: row;
         }
     }
 }

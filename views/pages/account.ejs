@@ -32,6 +32,15 @@
             </div>
             
             <h1 class="userName"><%= user.name %></h1>
+            <p class="userEmail"><%= user.email %></p>
+            <div class="line"></div>
+            <p class="userInfo">User since: <%= user.date %></p>
+            <p class="userInfo">Card #: <%= user.card %></p>
+            <p class="userInfo">Items in cart: <%= user.cart.length %></p>
+            <p class="userInfo">Balance: $<%= user.balance %></p>
+        </section>
+        <section class="information">
+
         </section>
     </main>
 
