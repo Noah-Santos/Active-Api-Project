@@ -73,6 +73,9 @@ body nav .searchNav #search {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
+body nav .searchNav #search::-moz-placeholder {
+  color: white;
+}
 body nav .searchNav #search::placeholder {
   color: white;
 }
@@ -126,6 +129,9 @@ body nav .searchNav #search::placeholder {
   width: 75%;
   color: rgb(255, 255, 255);
   outline: 0;
+}
+.loginBody .loginSection .loginForm div input::-moz-placeholder {
+  color: white;
 }
 .loginBody .loginSection .loginForm div input::placeholder {
   color: white;
@@ -188,6 +194,9 @@ body nav .searchNav #search::placeholder {
   width: 75%;
   color: rgb(255, 255, 255);
   outline: 0;
+}
+.registerBody .registerSection .registerForm div input::-moz-placeholder {
+  color: white;
 }
 .registerBody .registerSection .registerForm div input::placeholder {
   color: white;
@@ -399,6 +408,9 @@ body .cartSection .cartSection .cartItems .cartItem .productInfoCont .productInf
   padding: 0.1rem;
   font-size: 1.5rem;
   border-radius: 0.5rem;
+}
+body .cartSection .cartSection .cartItems .cartItem .productInfoCont .productInfo #quantity::-moz-placeholder {
+  color: rgb(255, 255, 255);
 }
 body .cartSection .cartSection .cartItems .cartItem .productInfoCont .productInfo #quantity::placeholder {
   color: rgb(255, 255, 255);
