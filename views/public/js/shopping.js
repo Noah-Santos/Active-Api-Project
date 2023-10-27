@@ -32,9 +32,12 @@ $(function(){
                 let temp = [];
                 // rounds prices to two decimal spots
                 item.price.value = Math.round(((Number(item.price.value) * 1.22) + Number.EPSILON) * 100) / 100;
+                console.log(item.images);
                 // gets the images and assigns them to a temporary variable
-                for(let i = 0; i < item.images.length; i++){
-                    temp.push(item.images[i].url);
+                if(item.images != null){
+                    for(let i = 0; i < item.images.length; i++){
+                        temp.push(item.images[i].url);
+                    }
                 }
                 // returns an array of useful information from the grocery item
                 return {name: `${item.name}`, description: `${item.description}`, manufacturer: `${item.manufacturer}`, price: `$${item.price.value}`, images: temp};

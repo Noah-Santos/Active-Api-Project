@@ -158,7 +158,7 @@ body nav .searchNav #search::placeholder {
   flex-direction: row;
   align-items: center;
   width: 60vw;
-  height: 90%;
+  height: 95%;
   background-color: #7F7F7F;
   border-radius: 1rem;
 }

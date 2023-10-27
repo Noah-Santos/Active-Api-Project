@@ -1,5 +1,5 @@
 let quantity = [];
-$(function(){
+$(async function(){
     let email = sessionStorage.getItem('currentUserEmail');
     let currentUser = [];
     let items = [];
@@ -46,7 +46,8 @@ $(function(){
 
         document.querySelector('.cartItems').innerHTML = items.join('');
     }
-    getUser();
+    await getUser();
+    setValues();
 })
 
 // function to change the quantity of the item
@@ -67,6 +68,6 @@ function setValues(){
         console.log('yes')
         console.log($(`#quantity${i}`))
         console.log(quantity[i])
-        $(`#quantity${i}`).value = `${quantity[i]}`;
+        document.querySelector(`#quantity${i}`).value = `${quantity[i]}`;
     }
 }
