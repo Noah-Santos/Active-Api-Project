@@ -21,14 +21,16 @@ const UserSchema  = new mongoose.Schema({
         default : []
     },
     balance :{
-        type : String,
-        default : '0.00'
+        type : Array,
     },
     card :{
         type : Number,
     },
     icon :{
         type : String,
+    },
+    quantity :{
+        type : Array
     }
 },{collection : 'Users'});
 const User= mongoose.model('User',UserSchema);

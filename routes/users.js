@@ -29,7 +29,9 @@ router.get('/shopping', (req,res)=>{
 })
 // send user to cart
 router.get('/cart', (req,res)=>{
-    res.render('pages/cart');
+    res.render('pages/cart', {
+        user: req.user
+    });
 })
 // send user to account
 router.get('/account', ensureAuthenticated, (req,res)=>{
@@ -47,25 +49,6 @@ router.get('/getUser', async(req,res)=>{
         console.log(error)
     }
 });
-
-// updates person
-// put request
-// router.put('/:email', async(req,res)=>{
-//     try {
-//         let {email} = req.params;
-//         let {cart,balance} = req.body;
-//         let changeUser = await User.findOne({email:email});
-
-//         cart = changeUser.cart.push(cart);
-//         let newBalance = changeUser.balance;
-
-//         let user = await User.findOneAndUpdate({email:email}, {cart:cart, balance:newBalance+balance});
-//         console.log(user);
-//         res.json(user);
-//     } catch (error) {
-//         console.log(error);
-//     }
-// })
 
 router.post('/register', async(req, res)=>{
     // gets the information from the page
@@ -155,7 +138,6 @@ router.post('/register', async(req, res)=>{
     }
 })
 
-// 
 router.post('/login', (req,res,next)=>{
     // passport checks if the user is still logged in
     passport.authenticate('local',{
@@ -177,7 +159,7 @@ router.get('/logout', (req, res)=>{
     res.redirect('/')
 });
 
-// put request
+// updates the user's cart
 router.put('/updateCart/:email', async(req,res)=>{
     try {
         let {email} = req.params;
@@ -185,19 +167,42 @@ router.put('/updateCart/:email', async(req,res)=>{
         let changePerson = await User.findOne({email:email})
 
         let bal = changePerson.balance;
-        // console.log(req.body)
-        console.log(bal)
-        console.log(balance)
-        bal = parseFloat(bal) + parseFloat(balance)
-        console.log(bal)
-        let car = changePerson.cart
+        bal.push(balance)
+
+        let car = changePerson.cart;
         car.push(cart);
 
-        let people = await User.findOneAndUpdate({email:email}, {balance: bal, cart:car});
+        let quantity = changePerson.quantity;
+        quantity.push(0);
+
+        let people = await User.findOneAndUpdate({email:email}, {balance: bal, cart:car, quantity:quantity});
         res.json(people);
     } catch (error) {
         console.log(error);
     }
-})
+});
+
+// updates the user's quantity
+router.put('/updateQuantity/:email', async(req,res)=>{
+    try {
+        let {email} = req.params;
+        let {quantity} = req.body;
+
+        let people = await User.findOneAndUpdate({email:email}, {quantity:quantity});
+        res.json(people);
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+// gets all users
+router.get('/', async(req,res)=>{
+    try {
+        let people = await User.find({});
+        res.json(people);
+    } catch (error) {
+        console.log(error)
+    }
+});
 
 module.exports = router;

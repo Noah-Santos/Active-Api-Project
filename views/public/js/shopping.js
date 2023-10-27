@@ -89,35 +89,20 @@ $(function(){
         }
     }
     getFood();
-
-    // if button is clicked, add it to cart
-    // $('.addCart').on('click', async function(){
-    //     console.log('click')
-    //     let id = $(this).attr('id');
-    //     let temp = id.split('');
-    //     console.log(temp);
-    //     await fetch(`/users/${currentEmail}`, {
-    //         method: "PUT",
-    //         headers: {'Content-Type': 'application/json'},
-    //         body: JSON.stringify({cart:values[temp[1]],balance:values[temp[1]].price}),
-    //     })
-    //     console.log('added to cart');
-    // })
-
 })
 
 // adds item to cart
 async function addToCart(id){
     let currentEmail = sessionStorage.getItem('currentUserEmail');
-    console.log(currentEmail);
+    // console.log(currentEmail);
     let cart = values[id];
     let balance = values[id].price;
     balance = balance.split('$')
-    console.log(cart)
+    // console.log(cart)
     await fetch(`/users/updateCart/${currentEmail}`, {
         method: "PUT",
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({cart:cart, balance:balance[1], test:'test'}),
+        body: JSON.stringify({cart:cart, balance:balance[1]}),
     })
-    console.log('added to cart');
+    // console.log('added to cart');
 }
