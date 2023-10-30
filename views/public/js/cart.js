@@ -58,7 +58,7 @@ function updatePrice(){
         let product = Number.parseFloat(Number(currentUser[0].balance[i]) * Number(currentUser[0].quantity[i]) * 1.056).toFixed(2);
         total += Number(product);
     }
-    document.querySelector('#totalPrice').innerHTML = `$${total}`;
+    document.querySelector('#totalPrice').innerHTML = `$${Number.parseFloat(total).toFixed(2)}`;
 }
 
 // function to change the quantity of the item

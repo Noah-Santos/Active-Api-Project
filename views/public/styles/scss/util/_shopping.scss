@@ -9,6 +9,33 @@
         margin: 2rem;
         // justify-content: space-evenly;
 
+        // edits search bar container
+        .searchCont{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 1rem;
+
+            // edits search bar
+            #searchBar {
+                width: 20%;
+                font-size: 1.5rem;
+                color: black;
+            }
+
+            // edits search button
+            #searchButton{
+                background-color: transparent;
+                border: none;  
+                
+                svg{
+                    width: 2rem;
+                    height: 2rem;
+                }
+            }
+        }
+
         // edits each row of items
         .row{
             display: flex;
@@ -23,7 +50,7 @@
                 justify-content: space-evenly;
                 background-color: #D9D9D9;
                 width: 30%;
-                height: 15rem;
+                height: 16rem;
                 border-radius: 1rem;
 
                 // edits container for image section
