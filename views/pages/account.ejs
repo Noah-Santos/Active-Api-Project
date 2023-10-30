@@ -24,6 +24,7 @@
         </section>
     </nav>
 
+
     <!-- content section -->
     <main class="accountCont">
         <section class="accountSection">
@@ -38,6 +39,7 @@
             <p class="userInfo">Card #: <%= user.card %></p>
             <p class="userInfo">Items in cart: <%= user.cart.length %></p>
             <p class="userInfo">Balance: $<%= user.balance %></p>
+            <button class="logout"><a href="/users/login" class="logoutlink">Logout</a></button>
         </section>
         <section class="information">
 
