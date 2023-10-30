@@ -73,9 +73,6 @@ body nav .searchNav #search {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
-body nav .searchNav #search::-moz-placeholder {
-  color: white;
-}
 body nav .searchNav #search::placeholder {
   color: white;
 }
@@ -129,9 +126,6 @@ body nav .searchNav #search::placeholder {
   width: 75%;
   color: rgb(255, 255, 255);
   outline: 0;
-}
-.loginBody .loginSection .loginForm div input::-moz-placeholder {
-  color: white;
 }
 .loginBody .loginSection .loginForm div input::placeholder {
   color: white;
@@ -194,9 +188,6 @@ body nav .searchNav #search::placeholder {
   width: 75%;
   color: rgb(255, 255, 255);
   outline: 0;
-}
-.registerBody .registerSection .registerForm div input::-moz-placeholder {
-  color: white;
 }
 .registerBody .registerSection .registerForm div input::placeholder {
   color: white;
@@ -338,29 +329,41 @@ body .cartSection {
   width: 100%;
   height: 100%;
 }
-body .cartSection .cartSection {
-  padding-top: 2rem;
+body .cartSection #cartSection {
+  height: 100%;
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+body .cartSection #cartSection #payment {
+  height: 20%;
+}
+body .cartSection #cartSection .section {
+  padding-top: 2rem;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   background-color: #D9D9D9;
   align-items: center;
 }
-body .cartSection .cartSection .cartTitle {
+body .cartSection #cartSection .section .cartTitle {
   width: 90%;
   font-size: 2.5rem;
+  padding-bottom: 0.25rem;
   color: black;
 }
-body .cartSection .cartSection .line {
+body .cartSection #cartSection .section .line {
   width: 97%;
   border-bottom: 2px solid black;
 }
-body .cartSection .cartSection .categoriesSection {
+body .cartSection #cartSection .section .categoriesSection {
   width: 100%;
   display: flex;
   flex-direction: row;
 }
-body .cartSection .cartSection .categoriesSection .categories {
+body .cartSection #cartSection .section .categoriesSection .categories {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -368,25 +371,31 @@ body .cartSection .cartSection .categoriesSection .categories {
   margin-left: 1rem;
   margin-right: 1rem;
 }
-body .cartSection .cartSection .categoriesSection .categories .descriptors {
+body .cartSection #cartSection .section .categoriesSection .categories .descriptors {
   color: black;
   font-size: 2rem;
   width: 25%;
   text-align: center;
 }
-body .cartSection .cartSection .cartItems {
+body .cartSection #cartSection .section .categoriesSection .categories .placeHolder {
+  opacity: 0;
+  font-size: 2rem;
+  width: 25%;
+  text-align: center;
+}
+body .cartSection #cartSection .section .cartItems {
   margin-top: 2rem;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-body .cartSection .cartSection .cartItems .cartItem {
+body .cartSection #cartSection .section .cartItems .cartItem {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
 }
-body .cartSection .cartSection .cartItems .cartItem .productInfoCont {
+body .cartSection #cartSection .section .cartItems .cartItem .productInfoCont {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -394,17 +403,17 @@ body .cartSection .cartSection .cartItems .cartItem .productInfoCont {
   align-items: center;
   margin: 1rem;
 }
-body .cartSection .cartSection .cartItems .cartItem .productInfoCont .productImage {
+body .cartSection #cartSection .section .cartItems .cartItem .productInfoCont .productImage {
   width: 7rem;
   border-radius: 1rem;
 }
-body .cartSection .cartSection .cartItems .cartItem .productInfoCont .productInfo {
+body .cartSection #cartSection .section .cartItems .cartItem .productInfoCont .productInfo {
   color: black;
-  font-size: 2rem;
+  font-size: 1.75rem;
   width: 25%;
   text-align: center;
 }
-body .cartSection .cartSection .cartItems .cartItem .productInfoCont .productInfo .quantity {
+body .cartSection #cartSection .section .cartItems .cartItem .productInfoCont .productInfo .quantity {
   width: 65%;
   border: none;
   background-color: #7F7F7F;
@@ -413,10 +422,7 @@ body .cartSection .cartSection .cartItems .cartItem .productInfoCont .productInf
   font-size: 1.5rem;
   border-radius: 0.5rem;
 }
-body .cartSection .cartSection .cartItems .cartItem .productInfoCont .productInfo .quantity::-moz-placeholder {
-  color: rgb(255, 255, 255);
-}
-body .cartSection .cartSection .cartItems .cartItem .productInfoCont .productInfo .quantity::placeholder {
+body .cartSection #cartSection .section .cartItems .cartItem .productInfoCont .productInfo .quantity::placeholder {
   color: rgb(255, 255, 255);
 }
 body .cartSection .paymentSection {

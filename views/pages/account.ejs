@@ -38,7 +38,7 @@
             <p class="userInfo">User since: <%= user.date %></p>
             <p class="userInfo">Card #: <%= user.card %></p>
             <p class="userInfo">Items in cart: <%= user.cart.length %></p>
-            <p class="userInfo">Balance: $<%= user.balance %></p>
+            <p class="userInfo" id="balance">Balance: $<%= user.balance %></p>
             <button class="logout"><a href="/users/login" class="logoutlink">Logout</a></button>
         </section>
         <section class="information">
@@ -50,6 +50,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../public/js/account.js"></script>
 </body>
 
 </html>

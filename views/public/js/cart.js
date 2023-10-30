@@ -1,7 +1,7 @@
 let quantity = [];
+let currentUser = [];
 $(async function(){
     let email = sessionStorage.getItem('currentUserEmail');
-    let currentUser = [];
     let items = [];
 
     // gets the current user
@@ -41,33 +41,45 @@ $(async function(){
                 </div>
             `)
             // quantity.push(0);
-            console.log(quantity)
+            // console.log(quantity)
         }
 
         document.querySelector('.cartItems').innerHTML = items.join('');
     }
     await getUser();
     setValues();
+    updatePrice();
 })
+
+function updatePrice(){
+    let total = 0.00;
+    // gets the users total price
+    for(let i = 0; i < currentUser[0].cart.length; i++){
+        let product = Number.parseFloat(Number(currentUser[0].balance[i]) * Number(currentUser[0].quantity[i]) * 1.056).toFixed(2);
+        total += Number(product);
+    }
+    document.querySelector('#totalPrice').innerHTML = `$${total}`;
+}
 
 // function to change the quantity of the item
 async function changeQuantity(id){
     let email = sessionStorage.getItem('currentUserEmail');
     quantity[id] = document.querySelector(`#quantity${id}`).value;
-    console.log(quantity);
+    // console.log(quantity);
     await fetch(`/users/updateQuantity/${email}`, {
         method: "PUT",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({quantity: quantity}),
     })
+    updatePrice();
 }
 
 function setValues(){
     // sets the dropdown quantity to the correct value
     for(let i = 0; i < quantity.length; i++) {
-        console.log('yes')
-        console.log($(`#quantity${i}`))
-        console.log(quantity[i])
+        // console.log('yes')
+        // console.log($(`#quantity${i}`))
+        // console.log(quantity[i])
         document.querySelector(`#quantity${i}`).value = `${quantity[i]}`;
     }
 }
