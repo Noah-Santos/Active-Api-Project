@@ -83,3 +83,20 @@ function setValues(){
         document.querySelector(`#quantity${i}`).value = `${quantity[i]}`;
     }
 }
+
+// checks the users info to make sure that it is correct
+async function checkInfo(){
+    let email = sessionStorage.getItem('currentUserEmail');
+    let enteredEmail = document.querySelector('.email').value;
+    let enteredCard = document.querySelector('.creditCard').value;
+
+    // makes sure that the users info matches their data
+    if(enteredEmail == currentUser[0].email && enteredCard == currentUser[0].card){
+        console.log('matches')
+        await fetch(`/users/resetCart/${email}`, {
+            method: "PUT",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({quantity: [], cart: [], balance: []}),
+        })
+    }
+}

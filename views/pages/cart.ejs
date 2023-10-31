@@ -93,7 +93,12 @@
 
         <!-- payment side -->
         <section class="paymentSection">
-            <input type="text">
+            <form class="infoSection">
+                <input type="text" placeholder="Enter Email" class="email" required>
+                <input type="text" placeholder="Enter Credit Card Number" class="creditCard" required>
+                <button type="submit" class="pay" onclick="checkInfo()">Check Out</button>
+            </form>
+            
         </section>
     </main>
 

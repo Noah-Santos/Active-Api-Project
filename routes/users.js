@@ -182,6 +182,22 @@ router.put('/updateCart/:email', async(req,res)=>{
     }
 });
 
+// resets the users info
+router.put('/resetCart/:email', async(req,res)=>{
+    try {
+        let {email} = req.params;
+        let {quantity, balance, cart} = req.body;
+
+        console.log(email)
+        console.log(req.body)
+
+        let people = await User.findOneAndUpdate({email:email}, {balance: balance, cart:cart, quantity:quantity});
+        res.json(people);
+    } catch (error) {
+        console.log(error);
+    }
+});
+
 // updates the user's quantity
 router.put('/updateQuantity/:email', async(req,res)=>{
     try {
