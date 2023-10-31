@@ -466,13 +466,15 @@ body .cartSection .paymentSection .infoSection {
 }
 body .cartSection .paymentSection .infoSection .creditCard {
   font-size: 2rem;
-  width: 40%;
+  width: 50%;
   color: black;
+  padding: 0.25rem;
 }
 body .cartSection .paymentSection .infoSection .email {
   font-size: 2rem;
-  width: 40%;
+  width: 50%;
   color: black;
+  padding: 0.25rem;
 }
 body .cartSection .paymentSection .infoSection .pay {
   border: none;

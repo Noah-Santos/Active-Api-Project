@@ -173,7 +173,7 @@ router.put('/updateCart/:email', async(req,res)=>{
         car.push(cart);
 
         let quantity = changePerson.quantity;
-        quantity.push(0);
+        quantity.push(1);
 
         let people = await User.findOneAndUpdate({email:email}, {balance: bal, cart:car, quantity:quantity});
         res.json(people);

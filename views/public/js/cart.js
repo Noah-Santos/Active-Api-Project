@@ -20,7 +20,7 @@ $(async function(){
 
         for(let i = 0; i < currentUser[0].cart.length; i++){
             items.push(`
-                <div class="cartItem">
+                <div class="cartItem" id="cart${i}">
                     <div class="productInfoCont">
                         <p class="productInfo">
                             <img src="${currentUser[0].cart[i].images[0]}" alt="" class="productImage">
@@ -29,12 +29,12 @@ $(async function(){
                         <p class="productInfo">${currentUser[0].cart[i].price}</p>
                         <p class="productInfo">
                             <select name="quantity" id="quantity${i}" class="quantity" onclick="changeQuantity(${i})">
-                                <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>    
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
+                                <option value="0">0</option>
                             </select>
                         </p>
                     </div>
