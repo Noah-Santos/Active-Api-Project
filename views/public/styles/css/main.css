@@ -404,10 +404,13 @@ body .cartSection #cartSection .section .categoriesSection .categories .placeHol
   text-align: center;
 }
 body .cartSection #cartSection .section .cartItems {
+  height: 80%;
   margin-top: 2rem;
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  overflow: auto;
+}
+body .cartSection #cartSection .section .cartItems::-webkit-scrollbar {
+  width: 0;
 }
 body .cartSection #cartSection .section .cartItems .cartItem {
   display: flex;
