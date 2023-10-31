@@ -211,6 +211,28 @@ router.put('/updateQuantity/:email', async(req,res)=>{
     }
 });
 
+// removes the item from the cart
+router.put('/removeItem/:email', async(req,res)=>{
+    try {
+        let {email} = req.params;
+        let {id} = req.body;
+        let person = await User.findOne({email:email});
+
+        let balance = person.balance;
+        let quantity = person.quantity;
+        let cart = person.cart;
+
+        balance.splice(id, 1);
+        quantity.splice(id, 1);
+        cart.splice(id, 1);
+
+        let people = await User.findOneAndUpdate({email:email}, {quantity:quantity, balance:balance, cart:cart});
+        res.json(people);
+    } catch (error) {
+        console.log(error);
+    }
+});
+
 // gets all users
 router.get('/', async(req,res)=>{
     try {

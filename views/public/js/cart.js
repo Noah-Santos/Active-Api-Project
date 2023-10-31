@@ -34,7 +34,7 @@ $(async function(){
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
-                                <option value="0">0</option>
+                                <option value="remove">Remove</option>
                             </select>
                         </p>
                     </div>
@@ -64,14 +64,32 @@ function updatePrice(){
 // function to change the quantity of the item
 async function changeQuantity(id){
     let email = sessionStorage.getItem('currentUserEmail');
-    quantity[id] = document.querySelector(`#quantity${id}`).value;
-    // console.log(quantity);
-    await fetch(`/users/updateQuantity/${email}`, {
-        method: "PUT",
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({quantity: quantity}),
-    })
+    let tempQuantity = document.querySelector(`#quantity${id}`).value;
+
+    if(tempQuantity == 'remove'){
+        console.log('remove')
+        await fetch(`/users/removeItem/${email}`, {
+            method: "PUT",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({id: id}),
+        })
+        location.reload();
+    }else{
+        quantity[id] = document.querySelector(`#quantity${id}`).value;
+        // console.log(quantity);
+        await fetch(`/users/updateQuantity/${email}`, {
+            method: "PUT",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({quantity: quantity}),
+        })
+    }
+
     updatePrice();
+}
+
+// removes the item from the cart
+async function removeCart(){
+    let currentEmail = sessionStorage.getItem('currentUserEmail');
 }
 
 function setValues(){

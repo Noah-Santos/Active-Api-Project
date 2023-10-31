@@ -63,7 +63,7 @@ async function getFood(){
                             <img src="${values[i+1].images[0]}" alt="" class="image">
                         </div>
                         <div class="itemInformation">
-                            <p><strong class="name">Name: ${values[i+1].name}</strong></p>
+                            <p><strong class="name">${values[i+1].name}</strong></p>
                             <p class="price">Price: ${values[i+1].price}</ class="price"></p>
                             <button class="addCart" id="b${i+1}" onclick="addToCart(${i+1})">Cart</button>
                         </div>
@@ -74,7 +74,7 @@ async function getFood(){
                             <img src="${values[i+2].images[0]}" alt="" class="image">
                         </div>
                         <div class="itemInformation">
-                            <p><strong class="name">Name: ${values[i+2].name}</strong></p>
+                            <p><strong class="name">${values[i+2].name}</strong></p>
                             <p class="price">Price: ${values[i+2].price}</ class="price"></p>
                             <button class="addCart" id="b${i+2}" onclick="addToCart('${i+2}')">Cart</button>
                         </div>
